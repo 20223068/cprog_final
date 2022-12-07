@@ -1,9 +1,8 @@
 //이름으로 검색하여 정보 출력하는 함수
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "main.c"
 
-void member_search(struct member s)
+int member_search(struct member s)
 {
     FILE *fp = NULL;
     int i;
@@ -21,10 +20,24 @@ void member_search(struct member s)
             break;
         }
     }
-    if(i != SIZE){
-        fscanf(fp, "%s %s %s", s.name, s.gender, s.phone);
-        printf("이름 = %s, 성별 = %s, 번호 = %s\n", s.name, s.gender, s.phone);
+    if(i != SIZE)
+        return 1;
+    return 0;
+    
+    fclose(fp);
+}
+
+void member_search_print(struct member s, int(*func)(struct member))
+{
+    FILE *fp = NULL;
+    fp=fopen("data.txt", "r");
+
+    if(func(s)){
+        fscanf(fp, "%s %s %s %s", s.name, s.gender, s.phone, s.date);
+        printf("이름 = %s, 성별 = %s, 번호 = %s, 등록일자= %s\n", s.name, s.gender, s.phone, s.date);
     }
+    else
+        printf("정보 입력을 취소합니다");
 
     fclose(fp);
 }
