@@ -1,6 +1,8 @@
 //회원 추가 함수
 
-#include "main.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int member_add(struct member s)
 {
@@ -13,7 +15,7 @@ int member_add(struct member s)
         return -1;
     }
 
-    printf("새로운 회원 정보 작성(이름, 성별, 연락처)");
+    printf("새로운 회원 정보 작성(이름, 성별, 연락처, 등록일자) : ");
     scanf("%s %s %s %s", s.name, s.gender, s.phone, s.date);
 
     fprintf(fp, "%s %s %s %s", s.name, s.gender, s.phone, s.date);
