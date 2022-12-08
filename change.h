@@ -1,11 +1,13 @@
 //회원 정보 수정
 
-#include "main.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int member_change(struct member *s)
 {
     int i;
-    char n;
+    char n[10];
     printf("정보를 수정할 환자 이름 입력 : ");
     scanf("%s", n);
 
