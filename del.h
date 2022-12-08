@@ -1,11 +1,13 @@
 //회원 삭제 함수
 
-#include "main.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int member_del(struct member *s)
 {
     int i;
-    char n;
+    char n[10];
     printf("삭제할 회원 이름 입력 : ");
     scanf("%s", n);
 
