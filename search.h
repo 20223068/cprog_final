@@ -7,20 +7,29 @@
 int member_search(struct member s)
 {
     FILE *fp = NULL;
+    fp=fopen("data.txt", "r");
     int i;
     char n[10];
     printf("이름 입력 : ");
     scanf("%s", n);
 
-    if((fp=fopen("data.txt", "r")) == NULL)
+    if(fp == NULL)
     {
         fprintf(stderr, "입력을 위한 파일을 열 수 없습니다.\n");
         exit(1);
     }
+    
+    for(i=0;i<SIZE;i++)
+    {
+        fscanf(fp, "%s %s %s %s", s.name, s.gender, s.phone, s.date);
+    }
+    
 
     for(i=0;i<SIZE;i++){
         if(strcmp(n, s.name)==0)
+        {
             break;
+        }
     }
     fclose(fp);
 
