@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define SIZE 10
+#define SIZE 100
 
 #include "struct.h"
 #include "add.h"
@@ -29,10 +29,10 @@ int main()
                 member_add(*s);
                 break;
             case 3:
-                //member_change(&s);
+                member_change(s);
                 break;
             case 4:
-                //member_del(&s);
+                member_del(s);
                 break;
             case 5:
                 return -1;
