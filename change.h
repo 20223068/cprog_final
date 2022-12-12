@@ -14,17 +14,19 @@ int member_change(struct member *s)
     for (i=0;i<SIZE;i++)
     {
         if(strcmp(n, s[i].name) == 0)
+        {
             break;
+        }
     }
 
     if(i != SIZE)
     {
-        printf("변경할 환자 정보 입력(이름, 성별, 번호, 등록 날짜) : ");
+        printf("변경할 회원 정보 입력(이름, 성별, 번호, 등록 날짜) : ");
         scanf("%s %s %s %s", s[i].name, s[i].gender, s[i].phone, s[i].date);
     }
 
     FILE *fp = NULL;
-    fp = fopen("data.txt", "w");
+    fp = fopen("data.txt", "wa");
 
     if(fp == NULL)
     {
